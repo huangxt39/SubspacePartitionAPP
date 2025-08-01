@@ -236,4 +236,5 @@ if show_explanation:
                A surrounding context window of each token in red is shown, you can adjust the window size on the left. 
                Note that future tokens (tokens after the red one) are always not part of the computation, they are invisible for the model. You can move the red token by changing "query act idx" on the left.
                If you want IOI and Greater-than examples, set act idx < around 30000. You can change layer by choose a different _"act site"_, for example, "x4.post" means post MLP residual stream after layer 4.
-               Show histogram will show the _histogram_ of cosine similarity values (Given a query activation, compute its similarity with all other activations).""")
+               Show histogram will show the _histogram_ of cosine similarity values (Given a query activation, compute its similarity with all other activations).
+               The database only contains around 1M activations due to disk usage limit, so sometimes preimage is empty (no other activation is similar enough to be > threshold)""")
