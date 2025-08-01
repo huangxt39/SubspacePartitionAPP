@@ -52,7 +52,7 @@ def get_cached_input(path):
 def get_norms(path):
     return np.load(os.path.join(path, "norms.npy"))
     
-@st.cache_data(persist=True)
+@st.cache_resource
 def search_for_idx(_index: faiss.IndexFlat, sel_subspace, act_idx, threshold):
     query_act = np.empty((_index.d,), dtype=np.float32)
     _index.reconstruct(act_idx, query_act)
@@ -72,7 +72,7 @@ def search_for_idx(_index: faiss.IndexFlat, sel_subspace, act_idx, threshold):
 
     return D, I
 
-@st.cache_data(persist=True)
+@st.cache_resource
 def make_histogram(_index: faiss.IndexFlat, sel_subspace, act_idx):
     cosine = isinstance(_index, faiss.IndexFlatIP)
     D, _ = search_for_idx(_index, sel_subspace, act_idx, -1.0 if cosine else 100000)
