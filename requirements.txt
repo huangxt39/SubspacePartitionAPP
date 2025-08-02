@@ -1,4 +1,4 @@
 streamlit
-faiss-cpu==1.11.0
+faiss-cpu
 plotly
 transformers
