@@ -26,11 +26,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           lfs: true
-          fetch-depth: 0
       
       - name: Pull LFS files (explicitly)
         run: |
-          git lfs pull origin $GITHUB_REF
+          git lfs pull
 
       - name: Set up Python version
         uses: actions/setup-python@v5
