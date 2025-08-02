@@ -50,7 +50,7 @@ def get_cached_input(path):
 
 @st.cache_resource
 def get_norms(path):
-    return np.load(os.path.join(path, "norms.npy"))
+    return np.load(os.path.join(path, "norms.npy"), allow_pickle=True)
     
 @st.cache_resource
 def search_for_idx(_index: faiss.IndexFlat, sel_subspace, act_idx, threshold):
