@@ -27,6 +27,10 @@ jobs:
         with:
           lfs: true
           fetch-depth: 0
+      
+      - name: Pull LFS files (explicitly)
+        run: |
+          git lfs pull origin $GITHUB_REF
 
       - name: Set up Python version
         uses: actions/setup-python@v5
