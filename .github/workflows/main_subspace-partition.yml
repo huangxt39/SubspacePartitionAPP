@@ -17,19 +17,16 @@ jobs:
       contents: read #This is required for actions/checkout
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-
       - name: Install Git LFS
         run: |
           sudo apt-get update
           sudo apt-get install git-lfs -y
           git lfs install
- 
-      - name: Authenticate Git LFS and pull objects
-        run: |
-          git lfs pull origin $GITHUB_REF
+
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
 
       - name: Set up Python version
         uses: actions/setup-python@v5
